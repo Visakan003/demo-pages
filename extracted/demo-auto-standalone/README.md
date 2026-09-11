@@ -2,7 +2,7 @@
 
 Standalone static demo page. No build step required. Open `index.html` directly or serve with any static file server.
 
-> **Before you use this:** replace `data-widget-id="REPLACE_ME_WIDGET_ID"` on **line 11** of `index.html` with the widget ID of a real **`AUTOMOBILE_SERVICE`** tenant on production (admin panel → *Customize chat widget*). Until then, the chat launcher will not appear. That's deliberate: never borrow another demo's widget ID, because a working assistant on the wrong page is worse than a visibly missing one.
+> **Before you use this:** the chat widget on **line 11** of `index.html` points at the **dev** API (`api-dev.csagentiq.com`) with widget ID `cmtx0ow0l00gys6011y194q7t`, which belongs to this page's own `AUTOMOBILE_SERVICE` tenant. Switch the script to the production tenant's embed snippet before any public use, and never borrow another demo's widget ID.
 
 ## What it demonstrates
 
@@ -17,13 +17,15 @@ A landing page for a fictional independent garage in Leeds (UK), showing how the
 
 | | |
 |---|---|
-| Widget ID | `REPLACE_ME_WIDGET_ID` (placeholder, line 11) |
-| Intended tenant industry | `AUTOMOBILE_SERVICE` (`tenants."signupIndustry"`) |
-| Script | `https://api.csagentiq.com/widget/widget.js`, the production API |
+| Widget ID | `cmtx0ow0l00gys6011y194q7t` (line 11) |
+| Tenant industry | `AUTOMOBILE_SERVICE` |
+| Tenant business name (from the widget config) | aireworks motorworks |
+| Tenant business hours (from the widget config) | Monday–Sunday 00:00–23:59, America/Los_Angeles |
+| Script | `https://api-dev.csagentiq.com/widget/widget.js`, the **dev** API |
 
-**Local database findings (checked 2026-09-11, recorded here but not acted on).** The local Postgres (`home-services-fresh`, the database the app's `.env` points at) has one `AUTOMOBILE_SERVICE` tenant: `cmst34dpq0000u5q8vct8uopc`, named "fdfd", which looks like a test sign-up. It has **no `widget_configs` row**. The whole `widget_configs` table holds a single row, belonging to a `HOME_SERVICES` tenant. The `home-services` database has no automobile tenants at all. Even if a local widget ID existed, it wouldn't work here: the page loads the widget from `api.csagentiq.com`, which is production. The ID has to come from a production tenant.
+**Local database findings (checked 2026-09-11, recorded here but not acted on).** The local Postgres (`home-services-fresh`, the database the app's `.env` points at) has one `AUTOMOBILE_SERVICE` tenant: `cmst34dpq0000u5q8vct8uopc`, named "fdfd", which looks like a test sign-up. It has **no `widget_configs` row**. The whole `widget_configs` table holds a single row, belonging to a `HOME_SERVICES` tenant. The `home-services` database has no automobile tenants at all. A local widget ID wouldn't work here anyway, because the page loads the widget from a hosted API (currently `api-dev.csagentiq.com`), not the local database.
 
-With the placeholder in place, the widget script loads (HTTP 200), the config request returns 404, and the widget logs one console warning and shows no launcher. With a valid config (tested by stubbing the config response, without touching any real tenant), the launcher renders bottom-right and doesn't collide with the page.
+Checked 2026-09-11 against the dev API: the widget script loads (HTTP 200), the config request returns 200, and the chat launcher appears bottom-right at 360, 820 and 1440px, with no console errors and no collisions with page content.
 
 ## Images
 
