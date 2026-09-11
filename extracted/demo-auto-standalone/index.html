@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en-GB" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aireworks Motor Works — Independent Garage, Servicing &amp; MOT in Leeds</title>
+<meta name="description" content="Independent Leeds garage for servicing, MOTs, diagnostics, brakes, tyres and air-con. Talk to the mechanic doing the work, see photos from under your car, and approve a fixed price before anything extra is done.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="demo-assets/auto-favicon.svg">
+<!-- REPLACE BEFORE USE: data-widget-id below is a placeholder, so the chat launcher will not appear. Swap in the widget ID of this page's own AUTOMOBILE_SERVICE tenant (production admin panel → Customize chat widget). Never reuse another demo's ID. -->
+<script src="https://api.csagentiq.com/widget/widget.js" data-widget-id="REPLACE_ME_WIDGET_ID" data-api-url="https://api.csagentiq.com" defer></script>
+<script>document.documentElement.className='js';</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* graphite + signal-orange workshop identity */
+    --g900:#141619; --g800:#1c1f23; --g700:#262a2f; --g600:#33383e;
+    --signal:#ff5a1f; --signal-2:#ff7440; --signal-deep:#e2470e; --signal-ink:#b23a0a;
+    --plate:#f5c518;
+    --concrete:#eeece8; --paper:#fbfaf7;
+    --ink:#15171a; --slate:#4a5058; --mist:#5f656d;
+    --line:#dcd8d1; --line-2:#e9e6e0;
+    --ok:#2f9e5b; --ok-tint:#e1f3e8; --ok-ink:#1d7a43;
+    --on-dark:#e7e5e1; --on-dark-mist:#a0a6ad; --on-dark-line:rgba(255,255,255,.13);
+
+    --hazard:repeating-linear-gradient(135deg,var(--signal) 0 12px,var(--g900) 12px 24px);
+    --tread:repeating-linear-gradient(135deg,rgba(255,255,255,.028) 0 2px,transparent 2px 15px);
+
+    --r:10px; --r-lg:14px;
+    --sh-sm:0 1px 2px rgba(20,22,25,.07);
+    --sh:0 8px 22px rgba(20,22,25,.08),0 1px 3px rgba(20,22,25,.06);
+    --sh-lg:0 26px 60px rgba(20,22,25,.28);
+    --container:1200px;
+    --pad-x:clamp(20px,5vw,40px);
+    --sec-y:clamp(62px,9vw,116px);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    font-family:'Barlow',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    background:var(--concrete); color:var(--ink); font-size:1.03rem;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; line-height:1.6;
+  }
+  svg{display:block}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+  ::selection{background:#ffd3bf;color:var(--ink)}
+  :focus-visible{outline:2.5px solid var(--signal-deep);outline-offset:2px;border-radius:6px}
+
+  h1,h2,h3{font-family:'Barlow Condensed','Arial Narrow',sans-serif;line-height:1;letter-spacing:.005em;color:var(--ink);text-wrap:balance}
+  .mono{font-family:'IBM Plex Mono',ui-monospace,monospace}
+
+  .wrap{max-width:var(--container);margin:0 auto;padding-inline:var(--pad-x)}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:.72rem;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--signal-ink);
+    display:inline-flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:22px;height:8px;background:var(--hazard);background-size:34px 34px}
+  .eyebrow.on-dark{color:var(--signal-2)}
+  .eyebrow.center{justify-content:center}
+
+  /* ---------- hazard topline ---------- */
+  .topline{height:5px;background:var(--hazard)}
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    height:52px;padding:0 24px;border-radius:var(--r);
+    font-weight:700;font-size:1rem;letter-spacing:.01em;transition:transform .16s ease,box-shadow .16s ease,background .16s ease,border-color .16s ease;
+    white-space:nowrap;
+  }
+  .btn svg{width:18px;height:18px}
+  .btn-primary{background:var(--signal);color:var(--g900);box-shadow:0 8px 22px rgba(255,90,31,.3)}
+  .btn-primary:hover{background:var(--signal-2);transform:translateY(-2px);box-shadow:0 14px 30px rgba(255,90,31,.38)}
+  .btn-ghost{background:var(--paper);color:var(--ink);border:1.5px solid var(--line);box-shadow:var(--sh-sm)}
+  .btn-ghost:hover{border-color:#bdb7ad;transform:translateY(-2px)}
+  .btn-dark{background:var(--g800);color:#fff;box-shadow:0 8px 22px rgba(20,22,25,.22)}
+  .btn-dark:hover{background:var(--g700);transform:translateY(-2px)}
+  .btn.on-dark{background:transparent;border:1.5px solid var(--on-dark-line);color:#fff;box-shadow:none}
+  .btn.on-dark:hover{border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.06);transform:translateY(-2px)}
+  .btn.sm{height:44px;font-size:.94rem;padding:0 18px}
+
+  /* ============================================================
+     HEADER
+     ============================================================ */
+  .site-head{position:sticky;top:0;z-index:40;background:rgba(238,236,232,.84);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .2s,box-shadow .2s,background .2s}
+  .site-head.scrolled{border-bottom-color:var(--line);box-shadow:0 6px 24px rgba(20,22,25,.07);background:rgba(238,236,232,.95)}
+  .head-in{display:flex;align-items:center;gap:20px;height:74px}
+  .brand{display:flex;align-items:center;gap:11px}
+  .brand .nut{width:40px;height:40px;flex-shrink:0}
+  .brand .bt{line-height:1}
+  .brand .bt b{display:block;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.5rem;letter-spacing:.02em;text-transform:uppercase}
+  .brand .bt span{font-family:'IBM Plex Mono',monospace;font-size:.58rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--mist)}
+  .nav{display:flex;align-items:center;gap:4px;margin-left:14px}
+  .nav a{padding:9px 12px;border-radius:8px;font-size:.96rem;font-weight:600;color:var(--slate);transition:.14s;white-space:nowrap}
+  .nav a:hover{background:rgba(255,90,31,.1);color:var(--ink)}
+  .head-cta{display:flex;align-items:center;gap:14px;margin-left:auto}
+  .head-phone{display:inline-flex;align-items:center;gap:9px;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:.9rem;color:var(--ink);white-space:nowrap}
+  .head-phone svg{width:17px;height:17px;stroke:var(--signal-deep);stroke-width:2}
+  .head-phone .lab{display:block;font-size:.56rem;letter-spacing:.14em;color:var(--ok-ink);font-weight:600}
+  .burger{display:none;width:46px;height:46px;border-radius:10px;border:1.5px solid var(--line);background:var(--paper);align-items:center;justify-content:center}
+  .burger svg{width:22px;height:22px;stroke:var(--ink);stroke-width:2}
+
+  .mobile-nav{display:none;flex-direction:column;gap:2px;padding:8px var(--pad-x) 20px}
+  .mobile-nav a{padding:13px 12px;border-radius:8px;font-weight:600;color:var(--slate);border-bottom:1px solid var(--line-2)}
+  .mobile-nav a:hover{background:rgba(255,90,31,.08);color:var(--ink)}
+  .mobile-nav .btn{margin-top:12px;width:100%}
+  .site-head.open .mobile-nav{display:flex}
+
+  /* ============================================================
+     HERO
+     ============================================================ */
+  .hero{position:relative;overflow:hidden;padding-block:0}
+  .hero::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(55% 70% at 90% 6%,rgba(255,90,31,.12),transparent 60%),
+    linear-gradient(rgba(20,22,25,.045) 1px,transparent 1px) 0 0/56px 56px,
+    linear-gradient(90deg,rgba(20,22,25,.045) 1px,transparent 1px) 0 0/56px 56px;
+    -webkit-mask-image:linear-gradient(180deg,#000 40%,transparent);mask-image:linear-gradient(180deg,#000 40%,transparent);pointer-events:none}
+  .hero-in{position:relative;display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(28px,5vw,64px);align-items:center;padding-block:clamp(48px,7vw,92px)}
+  .hero-copy h1{font-size:clamp(3rem,6.4vw,5.1rem);font-weight:800;text-transform:uppercase;margin:18px 0 0;line-height:.94}
+  .hl{position:relative;z-index:0;white-space:nowrap;color:var(--ink)}
+  .hl::after{content:"";position:absolute;left:0;right:0;bottom:.02em;height:.14em;background:var(--signal);transform:scaleX(0);transform-origin:left;animation:fill .9s .35s cubic-bezier(.2,.7,.3,1) forwards;z-index:-1}
+  @keyframes fill{to{transform:scaleX(1)}}
+  .hero-copy .lead{font-size:clamp(1.08rem,1.55vw,1.26rem);color:var(--slate);margin-top:22px;max-width:36em}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:13px;margin-top:28px}
+  .chips{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:26px}
+  .chip{display:inline-flex;align-items:center;gap:8px;font-size:.92rem;font-weight:600;color:var(--slate)}
+  .chip svg{width:17px;height:17px;stroke:var(--signal-deep);stroke-width:2.2;flex-shrink:0}
+
+  .hero-visual{position:relative}
+  .hero-photo{position:relative;aspect-ratio:4/4.5;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-lg)}
+  .hero-photo img{width:100%;height:100%;object-fit:cover}
+  .photo-tag{position:absolute;top:14px;left:14px;display:inline-flex;align-items:center;gap:8px;background:rgba(20,22,25,.82);backdrop-filter:blur(6px);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:.64rem;font-weight:600;letter-spacing:.12em;padding:7px 10px;border-radius:6px}
+  .photo-tag i{width:8px;height:8px;background:var(--signal);display:block}
+
+  /* workshop board (signature) */
+  .board{position:absolute;left:-26px;bottom:26px;width:min(372px,92%);background:rgba(20,22,25,.95);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.1);border-radius:12px;box-shadow:var(--sh-lg);color:var(--on-dark);overflow:hidden;font-family:'IBM Plex Mono',monospace}
+  .board::before{content:"";display:block;height:5px;background:var(--hazard)}
+  .b-top{display:flex;align-items:center;gap:8px;padding:12px 15px 9px;font-size:.62rem;letter-spacing:.14em;font-weight:600;color:var(--on-dark-mist);text-transform:uppercase}
+  .b-top .clk{margin-left:auto;color:var(--plate);letter-spacing:.06em;font-size:.72rem}
+  .live{width:8px;height:8px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 4px rgba(61,220,132,.16);animation:blip 2.4s infinite}
+  @keyframes blip{0%,100%{box-shadow:0 0 0 4px rgba(61,220,132,.16)}50%{box-shadow:0 0 0 7px rgba(61,220,132,.03)}}
+  .b-rows{list-style:none;border-top:1px solid rgba(255,255,255,.08)}
+  .b-row{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center;padding:9px 15px;border-bottom:1px solid rgba(255,255,255,.06)}
+  .b-bay{font-weight:600;font-size:.7rem;color:var(--on-dark-mist);border:1px solid rgba(255,255,255,.16);border-radius:4px;text-align:center;padding:3px 0}
+  .b-job{min-width:0}
+  .b-job b{display:block;font-family:'Barlow',sans-serif;font-weight:600;font-size:.86rem;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .b-job small{display:block;font-size:.6rem;color:var(--on-dark-mist);letter-spacing:.06em;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .b-bar{height:3px;background:rgba(255,255,255,.1);border-radius:2px;margin-top:6px;overflow:hidden}
+  .b-bar i{display:block;height:100%;width:0;background:var(--signal);transition:width 1.2s linear}
+  .st{font-size:.58rem;font-weight:600;letter-spacing:.1em;padding:4px 7px;border-radius:4px;white-space:nowrap}
+  .st-run{background:rgba(255,90,31,.16);color:var(--signal-2)}
+  .st-wait{background:var(--plate);color:var(--g900)}
+  .st-ok{background:rgba(61,220,132,.14);color:#6fe7a6}
+  .st-free{border:1px dashed rgba(255,255,255,.3);color:var(--on-dark)}
+  .b-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 15px 12px;font-size:.62rem;letter-spacing:.08em;color:var(--on-dark-mist);text-transform:uppercase}
+  .b-foot b{color:#fff;font-weight:600;letter-spacing:.04em;font-size:.72rem}
+
+  /* ============================================================
+     PROMISE STRIP
+     ============================================================ */
+  .promise{background:var(--g900);color:var(--on-dark);position:relative;overflow:hidden}
+  .promise::before{content:"";position:absolute;inset:0;background:var(--tread),radial-gradient(60% 120% at 95% 100%,rgba(255,90,31,.14),transparent 55%)}
+  .promise-in{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,3vw,40px);padding-block:clamp(38px,5vw,58px)}
+  .pr{display:flex;flex-direction:column;gap:8px}
+  .pr .ic{width:42px;height:42px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center}
+  .pr .ic svg{width:21px;height:21px;stroke:var(--signal);stroke-width:1.9;fill:none}
+  .pr b{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;color:#fff;font-weight:700;text-transform:uppercase;letter-spacing:.02em;line-height:1.1}
+  .pr span{font-size:.95rem;color:var(--on-dark-mist);line-height:1.5}
+
+  /* ============================================================
+     SECTION SCAFFOLD
+     ============================================================ */
+  section{padding-block:var(--sec-y)}
+  .sec-head{max-width:660px;margin-bottom:clamp(34px,4.5vw,54px)}
+  .sec-head.center{margin-inline:auto;text-align:center}
+  .sec-head h2{font-size:clamp(2.1rem,3.8vw,3.1rem);font-weight:800;text-transform:uppercase;margin-top:15px}
+  .sec-head p{color:var(--slate);font-size:1.1rem;margin-top:14px}
+
+  /* ---------- services ---------- */
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .svc{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:26px 24px;box-shadow:var(--sh-sm);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;overflow:hidden}
+  .svc::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--signal);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+  .svc:hover{transform:translateY(-4px);box-shadow:var(--sh);border-color:#cfc9bf}
+  .svc:hover::before{transform:scaleX(1)}
+  .svc .ic{width:50px;height:50px;border-radius:10px;background:var(--g800);display:flex;align-items:center;justify-content:center;margin-bottom:17px}
+  .svc .ic svg{width:25px;height:25px;stroke:var(--signal);stroke-width:1.9;fill:none}
+  .svc h3{font-size:1.5rem;font-weight:700;text-transform:uppercase}
+  .svc p{color:var(--slate);font-size:.98rem;margin-top:9px}
+  .svc .inc{display:flex;align-items:center;gap:8px;margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.04em;color:var(--signal-ink);font-weight:600;text-transform:uppercase}
+  .svc .inc svg{width:14px;height:14px;stroke:var(--signal-deep);stroke-width:2.4;flex-shrink:0}
+
+  /* ---------- photo strip ---------- */
+  .strip{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .shot{position:relative;aspect-ratio:4/3;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-sm)}
+  .shot img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+  .shot:hover img{transform:scale(1.05)}
+  .shot figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 15px 13px;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:600;letter-spacing:.04em;background:linear-gradient(180deg,transparent,rgba(20,22,25,.86))}
+  .shot figcaption b{color:var(--signal-2);font-weight:600;margin-right:6px}
+
+  /* ============================================================
+     BOOKING — SERVICE-BAY PICKER
+     ============================================================ */
+  .book{background:linear-gradient(165deg,var(--g800),var(--g900));color:var(--on-dark);position:relative;overflow:hidden}
+  .book::before{content:"";position:absolute;inset:0;background:var(--tread),radial-gradient(50% 60% at 85% 10%,rgba(255,90,31,.16),transparent 60%)}
+  .book-in{position:relative;display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,5vw,66px);align-items:start}
+  .book-copy{padding-top:28px}
+  .book-copy h2{color:#fff;font-size:clamp(2.3rem,4.2vw,3.4rem);font-weight:800;text-transform:uppercase;margin-top:15px}
+  .book-copy p{color:var(--on-dark);opacity:.92;font-size:1.1rem;margin-top:16px;max-width:34em}
+  .book-copy .callout{display:inline-flex;align-items:center;gap:10px;margin-top:24px;padding:12px 18px;border-radius:var(--r);background:rgba(255,255,255,.05);border:1px solid var(--on-dark-line);font-family:'IBM Plex Mono',monospace;font-size:.8rem;font-weight:600;line-height:1.45}
+  .book-copy .callout svg{width:17px;height:17px;stroke:var(--signal);stroke-width:2;flex-shrink:0}
+  .book-copy .callout a{color:var(--signal-2);white-space:nowrap}
+  .legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:22px;font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.06em;color:var(--on-dark-mist);text-transform:uppercase}
+  .legend span{display:inline-flex;align-items:center;gap:7px}
+  .legend i{width:12px;height:12px;border-radius:3px;display:block}
+
+  /* job card */
+  .jobcard{background:var(--paper);border-radius:var(--r-lg);box-shadow:var(--sh-lg);overflow:hidden;color:var(--ink)}
+  .jc-stripe{height:8px;background:var(--hazard);background-size:34px 34px;animation:roll 3s linear infinite}
+  @keyframes roll{to{background-position:34px 0}}
+  .jc-head{display:flex;align-items:center;gap:12px;padding:18px 22px;border-bottom:1px dashed var(--line)}
+  .jc-head .tt{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.5rem;text-transform:uppercase;line-height:1}
+  .jc-head .tt span{display:block;font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.12em;color:var(--mist);font-weight:600;margin-top:5px}
+  .jc-badge{margin-left:auto;display:inline-flex;align-items:center;gap:7px;background:var(--ok-tint);color:var(--ok-ink);font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:.64rem;letter-spacing:.08em;padding:6px 11px;border-radius:6px;white-space:nowrap}
+  .jc-badge .live{background:var(--ok);box-shadow:0 0 0 3px rgba(47,158,91,.16)}
+  .jc-body{padding:20px 22px 24px}
+  .fl{display:block;font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mist);font-weight:600;margin:0 0 10px}
+  .jc-body .fl:not(:first-child){margin-top:20px}
+
+  .plate{display:flex;align-items:stretch;max-width:280px;height:54px;border-radius:7px;overflow:hidden;background:var(--plate);border:2px solid #111;box-shadow:inset 0 0 0 2px rgba(255,255,255,.35)}
+  .plate:focus-within{outline:2.5px solid var(--signal-deep);outline-offset:3px}
+  .plate .uk{width:30px;flex-shrink:0;background:#1f4fa8;color:#fff;display:flex;align-items:flex-end;justify-content:center;padding-bottom:7px;font-weight:700;font-size:.66rem;letter-spacing:.04em}
+  .plate input{flex:1;min-width:0;border:0;background:transparent;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.85rem;letter-spacing:.09em;text-transform:uppercase;text-align:center;color:#111;outline:none}
+  .plate input::placeholder{color:rgba(17,17,17,.34)}
+
+  .opt-row{display:flex;flex-wrap:wrap;gap:8px}
+  .opt{padding:9px 13px;border-radius:8px;border:1.5px solid var(--line);background:var(--paper);font-size:.92rem;font-weight:600;color:var(--slate);transition:.14s;text-align:left;line-height:1.2}
+  .opt small{display:block;font-family:'IBM Plex Mono',monospace;font-size:.6rem;font-weight:500;letter-spacing:.04em;color:var(--mist);margin-top:3px}
+  .opt:hover{border-color:var(--signal);color:var(--ink)}
+  .opt[aria-pressed="true"]{background:var(--g800);border-color:var(--g800);color:#fff}
+  .opt[aria-pressed="true"] small{color:var(--signal-2)}
+
+  .slot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+  .slot{padding:9px 6px 8px;border-radius:8px;border:1.5px solid var(--line);background:var(--paper);text-align:center;transition:.14s;line-height:1.15}
+  .slot b{display:block;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:.95rem;color:var(--ink)}
+  .slot span{display:block;font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mist);margin-top:3px}
+  .slot:hover:not([disabled]){border-color:var(--signal)}
+  .slot[aria-pressed="true"]{background:var(--signal);border-color:var(--signal)}
+  .slot[aria-pressed="true"] b,.slot[aria-pressed="true"] span{color:var(--g900)}
+  .slot[disabled]{cursor:not-allowed;background:repeating-linear-gradient(135deg,var(--line-2) 0 6px,var(--paper) 6px 12px);border-style:dashed}
+  .slot[disabled] b{color:#8b8f95;text-decoration:line-through}
+  .slot[disabled] span{color:#7a7f86}
+
+  .jc-summary{display:flex;align-items:flex-start;gap:10px;margin-top:20px;padding:13px 15px;border-radius:10px;background:var(--concrete);border:1px solid var(--line);font-size:.95rem;color:var(--slate)}
+  .jc-summary svg{width:18px;height:18px;stroke:var(--signal-deep);stroke-width:2;flex-shrink:0;margin-top:2px}
+  .jc-summary b{color:var(--ink);font-weight:700}
+  .jc-body .btn{width:100%;margin-top:16px}
+  .jc-note{text-align:center;font-size:.82rem;color:var(--mist);margin-top:12px}
+
+  /* ============================================================
+     WHY US
+     ============================================================ */
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px 26px}
+  .why{padding:6px 2px 6px 18px;border-left:3px solid var(--line)}
+  .why .ic{width:44px;height:44px;border-radius:9px;background:#ffe6db;display:flex;align-items:center;justify-content:center;margin-bottom:15px}
+  .why .ic svg{width:22px;height:22px;stroke:var(--signal-ink);stroke-width:1.9;fill:none}
+  .why h3{font-size:1.35rem;font-weight:700;text-transform:uppercase}
+  .why p{color:var(--slate);font-size:.97rem;margin-top:7px}
+
+  /* ============================================================
+     HOW IT WORKS
+     ============================================================ */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .step{position:relative;background:var(--concrete);border:1px solid var(--line);border-radius:var(--r-lg);padding:30px 24px 26px}
+  .step .num{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:3.4rem;line-height:.8;color:transparent;-webkit-text-stroke:1.5px var(--signal-deep)}
+  .step h3{font-size:1.5rem;font-weight:700;text-transform:uppercase;margin:16px 0 8px}
+  .step p{color:var(--slate);font-size:.98rem}
+  .step .bar{position:absolute;left:24px;right:24px;top:0;height:5px;background:var(--hazard);background-size:34px 34px;opacity:.9}
+
+  /* ============================================================
+     MOT BAND
+     ============================================================ */
+  .band-in{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,60px);align-items:center}
+  .band-photo{position:relative;aspect-ratio:5/4;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh)}
+  .band-photo img{width:100%;height:100%;object-fit:cover}
+  .band-copy h2{font-size:clamp(2rem,3.5vw,2.9rem);font-weight:800;text-transform:uppercase;margin-top:14px}
+  .band-copy p{color:var(--slate);font-size:1.08rem;margin-top:15px}
+  .band-list{list-style:none;margin:20px 0 26px;display:flex;flex-direction:column;gap:11px}
+  .band-list li{display:flex;align-items:center;gap:11px;font-weight:600;color:var(--ink)}
+  .band-list svg{width:20px;height:20px;stroke:var(--ok-ink);stroke-width:2.4;flex-shrink:0}
+
+  /* ============================================================
+     SERVICE AREAS
+     ============================================================ */
+  .areas{background:var(--paper);border-block:1px solid var(--line)}
+  .area-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+  .area-tags .tag{display:inline-flex;align-items:center;gap:8px;padding:9px 15px;border-radius:8px;background:var(--concrete);border:1px solid var(--line);font-size:.94rem;font-weight:600;color:var(--slate)}
+  .area-tags .tag svg{width:14px;height:14px;stroke:var(--signal-deep);stroke-width:2.2}
+  .area-near{margin-top:22px;font-size:.98rem;color:var(--mist)}
+  .area-near b{color:var(--ink);font-weight:700}
+
+  /* ============================================================
+     CARE PLAN
+     ============================================================ */
+  .plan{display:grid;grid-template-columns:1.1fr .9fr;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh);border:1px solid var(--line)}
+  .plan-l{background:var(--paper);padding:clamp(28px,4vw,44px)}
+  .plan-l h2{font-size:clamp(2rem,3.2vw,2.7rem);font-weight:800;text-transform:uppercase;margin-top:14px}
+  .plan-l p{color:var(--slate);font-size:1.05rem;margin-top:12px;max-width:34em}
+  .plan-feat{list-style:none;margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .plan-feat li{display:flex;align-items:flex-start;gap:9px;font-size:.97rem;color:var(--ink);font-weight:500}
+  .plan-feat svg{width:19px;height:19px;stroke:var(--ok-ink);stroke-width:2.4;flex-shrink:0;margin-top:2px}
+  .plan-r{background:var(--g800);color:#fff;padding:clamp(28px,4vw,44px);display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+  .plan-r::before{content:"";position:absolute;inset:0;background:var(--tread),radial-gradient(70% 80% at 80% 10%,rgba(255,90,31,.22),transparent 60%)}
+  .plan-r .rel{position:relative}
+  .plan-r .price{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:4rem;letter-spacing:-.01em;line-height:1}
+  .plan-r .price span{font-family:'IBM Plex Mono',monospace;font-size:.9rem;color:var(--on-dark-mist);font-weight:600}
+  .plan-r .sub{color:var(--on-dark-mist);font-size:.95rem;margin:8px 0 22px}
+  .plan-r .btn{width:100%}
+
+  /* ============================================================
+     TESTIMONIALS
+     ============================================================ */
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .quote{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:26px 24px;box-shadow:var(--sh-sm);display:flex;flex-direction:column}
+  .stars{display:flex;gap:3px;margin-bottom:14px}
+  .stars svg{width:17px;height:17px;fill:var(--signal)}
+  .quote blockquote{flex:1}
+  .quote p{color:var(--ink);font-size:1.02rem;line-height:1.6}
+  .quote .by{display:flex;align-items:center;gap:11px;margin-top:18px}
+  .quote .av{width:40px;height:40px;border-radius:8px;background:var(--g800);color:var(--signal);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:.85rem;flex-shrink:0}
+  .quote .by b{display:block;font-size:.96rem;font-weight:700}
+  .quote .by span{font-size:.84rem;color:var(--mist)}
+
+  /* ============================================================
+     FAQ
+     ============================================================ */
+  .faq{max-width:820px;margin-inline:auto}
+  .faq details{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);margin-bottom:12px;overflow:hidden;box-shadow:var(--sh-sm)}
+  .faq summary{list-style:none;cursor:pointer;padding:19px 22px;display:flex;align-items:center;gap:14px;font-weight:700;font-size:1.08rem;color:var(--ink)}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary .q{width:22px;height:22px;flex-shrink:0;position:relative;margin-left:auto}
+  .faq summary .q::before,.faq summary .q::after{content:"";position:absolute;background:var(--signal-deep);border-radius:1px;transition:transform .2s}
+  .faq summary .q::before{top:10px;left:2px;right:2px;height:2.5px}
+  .faq summary .q::after{left:10px;top:2px;bottom:2px;width:2.5px}
+  .faq details[open] summary .q::after{transform:scaleY(0)}
+  .faq .a{padding:0 22px 20px;color:var(--slate);font-size:1rem;line-height:1.65}
+
+  /* ============================================================
+     FINAL CTA
+     ============================================================ */
+  .final{background:var(--g900);color:#fff;text-align:center;position:relative;overflow:hidden}
+  .final::before{content:"";position:absolute;inset:0;background:var(--tread),radial-gradient(55% 90% at 50% 0%,rgba(255,90,31,.2),transparent 60%)}
+  .final::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;background:var(--hazard)}
+  .final-in{position:relative;max-width:680px;margin-inline:auto}
+  .final h2{color:#fff;font-size:clamp(2.5rem,5vw,3.8rem);font-weight:800;text-transform:uppercase;margin-top:15px}
+  .final p{color:var(--on-dark);opacity:.92;font-size:1.12rem;margin-top:16px}
+  .final .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+
+  /* ============================================================
+     FOOTER
+     ============================================================ */
+  .foot{background:#0f1113;color:var(--on-dark-mist);padding-block:clamp(46px,6vw,72px) 30px}
+  .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:clamp(24px,4vw,52px)}
+  .foot-brand .brand .bt b{color:#fff}
+  .foot-brand .brand .bt span{color:var(--on-dark-mist)}
+  .foot-brand p{margin-top:15px;font-size:.95rem;line-height:1.6;max-width:30em}
+  .foot-contact{margin-top:18px;display:flex;flex-direction:column;gap:10px}
+  .foot-contact .row{display:flex;align-items:flex-start;gap:10px;font-size:.93rem;color:var(--on-dark)}
+  .foot-contact .row svg{width:16px;height:16px;stroke:var(--signal);stroke-width:2;flex-shrink:0;margin-top:4px}
+  .foot-contact a:hover{color:#fff}
+  .foot-col h2{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#98a0a8;margin-bottom:15px;font-weight:600;line-height:1.4}
+  .foot-col a{display:block;padding:6px 0;font-size:.95rem;color:var(--on-dark-mist);transition:.14s}
+  .foot-col a:hover{color:#fff}
+  .foot-bottom{margin-top:clamp(34px,5vw,52px);padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;font-size:.85rem}
+  .foot-social{display:flex;gap:10px}
+  .foot-social a{width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;transition:.16s}
+  .foot-social a:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.25)}
+  .foot-social svg{width:17px;height:17px;stroke:var(--on-dark-mist);stroke-width:1.8;fill:none}
+  .foot-social a:hover svg{stroke:#fff}
+  .foot-fine{margin-top:16px;font-size:.8rem;color:#838a92;line-height:1.6;max-width:70em}
+
+  /* ============================================================
+     REVEAL
+     ============================================================ */
+  .js .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1)}
+  .js .reveal.in{opacity:1;transform:none}
+  .js .reveal.d1{transition-delay:.06s}.js .reveal.d2{transition-delay:.12s}.js .reveal.d3{transition-delay:.18s}
+
+  /* ============================================================
+     RESPONSIVE
+     ============================================================ */
+  @media (min-width:1081px) and (max-width:1280px){
+    .nav{margin-left:6px;gap:0}
+    .nav a{padding:9px 8px}
+    .head-phone .lab{display:none}
+  }
+  @media (max-width:1080px){
+    .nav{display:none}
+    .burger{display:flex}
+    .head-phone .num{display:none}
+    .hero-in{grid-template-columns:1fr;gap:44px}
+    .hero-visual{max-width:480px}
+    .promise-in{grid-template-columns:1fr 1fr;gap:28px}
+    .book-in,.band-in{grid-template-columns:1fr;gap:36px}
+    .book-copy{padding-top:0}
+    .book-visual{max-width:600px}
+    .plan{grid-template-columns:1fr}
+  }
+  @media (max-width:820px){
+    .grid-3,.why-grid,.steps,.quotes{grid-template-columns:1fr 1fr}
+    .strip{grid-template-columns:1fr}
+    .shot{aspect-ratio:16/9}
+    .foot-top{grid-template-columns:1fr 1fr 1fr}
+    .foot-brand{grid-column:1/-1}
+  }
+  @media (max-width:560px){
+    .grid-3,.why-grid,.steps,.quotes,.promise-in,.plan-feat{grid-template-columns:1fr}
+    .foot-top{grid-template-columns:1fr 1fr}
+    .hero-actions .btn{width:100%}
+    .head-cta .btn-primary,.head-cta .btn-ghost{display:none}
+    .head-phone{width:46px;height:46px;justify-content:center;border-radius:10px;border:1.5px solid var(--line);background:var(--paper)}
+    .head-phone .lab{display:none}
+    .board{position:relative;left:auto;bottom:auto;width:auto;margin:-72px 10px 0}
+    .slot-grid{grid-template-columns:repeat(2,1fr)}
+    .jc-head{flex-wrap:wrap}
+    .jc-badge{margin-left:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .hl::after{transform:scaleX(1)}
+    .js .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="topline"></div>
+
+<!-- ============================= HEADER ============================= -->
+<header class="site-head" id="head">
+  <div class="wrap head-in">
+    <a class="brand" href="#top" aria-label="Aireworks Motor Works — home">
+      <svg class="nut" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <path d="M20 3.5l14.3 8.25v16.5L20 36.5 5.7 28.25v-16.5z" fill="#ff5a1f"/>
+        <path d="M20 3.5l14.3 8.25v16.5L20 36.5" fill="#e2470e" opacity=".55"/>
+        <circle cx="20" cy="20" r="6.2" fill="#1c1f23"/>
+      </svg>
+      <span class="bt"><b>Aireworks</b><span>Motor Works · Leeds</span></span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#book">Book a bay</a>
+      <a href="#mot">MOT</a>
+      <a href="#why">Why us</a>
+      <a href="#areas">Areas</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="head-cta">
+      <a class="head-phone" href="tel:+441134960472" aria-label="Call the workshop on 0113 496 0472">
+        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 012-2h2l1 4-2 1a11 11 0 005 5l1-2 4 1v2a2 2 0 01-2 2A14 14 0 014 5z"/></svg>
+        <span><span class="lab">WORKSHOP LINE</span><span class="num">0113 496 0472</span></span>
+      </a>
+      <a class="btn btn-primary sm" href="#book">Book a bay</a>
+      <a class="btn btn-ghost sm" href="https://app.csagentiq.com/login" target="_blank" rel="noopener">Login</a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+    <a href="#services">Services</a>
+    <a href="#book">Book a bay</a>
+    <a href="#mot">MOT</a>
+    <a href="#why">Why us</a>
+    <a href="#areas">Areas</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#faq">FAQ</a>
+    <a class="btn btn-primary" href="tel:+441134960472">Call 0113 496 0472</a>
+    <a class="btn btn-ghost" href="https://app.csagentiq.com/login" target="_blank" rel="noopener">Login</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ============================= HERO ============================= -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-in">
+      <div class="hero-copy">
+        <span class="eyebrow">Independent garage · MOT · Leeds</span>
+        <h1 id="hero-title">Straight answers.<br><span class="hl">Proper repairs.</span></h1>
+        <p class="lead">Servicing, MOTs, diagnostics and repairs from an independent Leeds workshop. The mechanic working on your car talks you through it, sends photos from under it, and gives you a fixed price before any extra work starts.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#book">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>
+            Book a bay
+          </a>
+          <a class="btn btn-ghost" href="tel:+441134960472">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 012-2h2l1 4-2 1a11 11 0 005 5l1-2 4 1v2a2 2 0 01-2 2A14 14 0 014 5z"/></svg>
+            Call 0113 496 0472
+          </a>
+        </div>
+        <div class="chips">
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4"/><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/></svg>DVSA-approved MOT centre</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8a2 2 0 012-2h2l2-2h6l2 2h2a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><circle cx="12" cy="13" r="4"/></svg>Photo report on every car</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"/><path d="M8 10l2 2 4-4"/></svg>Fixed quotes, approved by text</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5L12 3z"/></svg>4.8★ · 900+ reviews</span>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-photo">
+          <img src="demo-assets/hero-mechanic-under-lift.jpg"
+               alt="Mechanic in a dark work jacket and gloves standing beneath a car raised on a lift, shining an inspection lamp on the suspension and wheel hub"
+               fetchpriority="high" decoding="async" width="1100" height="1238">
+          <span class="photo-tag" aria-hidden="true"><i></i>BAY 02 · UNDERSIDE CHECK</span>
+        </div>
+        <div class="board" aria-hidden="true">
+          <div class="b-top"><span class="live"></span>Workshop board · live<span class="clk" id="heroClock">--:--</span></div>
+          <ul class="b-rows">
+            <li class="b-row">
+              <span class="b-bay">B1</span>
+              <span class="b-job"><b>MOT test · Class 4</b><small id="b1reg">YK19 ••• · MOT LANE</small><span class="b-bar"><i id="b1bar" style="width:62%"></i></span></span>
+              <span class="st st-run" id="b1st">IN TEST</span>
+            </li>
+            <li class="b-row">
+              <span class="b-bay">B2</span>
+              <span class="b-job"><b>Front pads &amp; discs</b><small>LS68 ••• · QUOTE SENT</small><span class="b-bar"><i style="width:35%"></i></span></span>
+              <span class="st st-wait">AWAITING OK</span>
+            </li>
+            <li class="b-row">
+              <span class="b-bay">B3</span>
+              <span class="b-job"><b>Engine light · diagnostics</b><small>BD21 ••• · ON THE SCANNER</small><span class="b-bar"><i id="b3bar" style="width:28%"></i></span></span>
+              <span class="st st-run" id="b3st">SCANNING</span>
+            </li>
+            <li class="b-row">
+              <span class="b-bay">B4</span>
+              <span class="b-job"><b>Lift free</b><small>READY FOR NEXT JOB</small></span>
+              <span class="st st-free">FREE</span>
+            </li>
+          </ul>
+          <div class="b-foot"><span>Next free lift</span><b id="nextLift">—</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= PROMISE STRIP ============================= -->
+  <section class="promise" style="padding-block:0" aria-label="Our promises">
+    <div class="wrap promise-in">
+      <div class="pr reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 012-2h2l1 4-2 1a11 11 0 005 5l1-2 4 1v2a2 2 0 01-2 2A14 14 0 014 5z"/></svg></div>
+        <b>Talk to your mechanic</b><span>Ring the workshop and speak to the person who'll actually work on your car.</span>
+      </div>
+      <div class="pr reveal d1">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8a2 2 0 012-2h2l2-2h6l2 2h2a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+        <b>See what we see</b><span>A photo report on every car: what's fine, what's due soon, what needs doing now.</span>
+      </div>
+      <div class="pr reveal d2">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"/><path d="M8 10l2 2 4-4"/></svg></div>
+        <b>Nothing without your OK</b><span>Extra work is quoted by text at a fixed price. You say yes before we start.</span>
+      </div>
+      <div class="pr reveal d3">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4"/><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/></svg></div>
+        <b>12-month warranty</b><span>Parts and labour guaranteed for 12 months or 12,000 miles, whichever comes first.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= SERVICES ============================= -->
+  <section id="services" aria-labelledby="services-title">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">What we do</span>
+        <h2 id="services-title">Everything your car needs between MOTs.</h2>
+        <p>Four lifts, a dedicated MOT lane and diagnostic kit to the same standard as a main dealer. We work on most makes, petrol, diesel and hybrid.</p>
+      </div>
+      <div class="grid-3">
+        <article class="svc reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16a8 8 0 1116 0"/><path d="M12 16l4.5-5"/><circle cx="12" cy="16" r="1.4"/><path d="M4 20h16"/></svg></div>
+          <h3>Diagnostics</h3>
+          <p>Engine management light on, or a noise you can't place? We read the fault codes and the live data, then road-test to find the actual cause, not just the symptom.</p>
+          <div class="inc"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Fault codes · live data · road test</div>
+        </article>
+        <article class="svc reveal d1">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="2.6"/><path d="M12 5.5v1M12 17.5v1M5.5 12h1M17.5 12h1"/><path d="M15.5 2.8a9.8 9.8 0 015.7 5.7" stroke-width="3"/></svg></div>
+          <h3>Brakes</h3>
+          <p>Pads, discs, calipers, hoses and fluid. We measure disc thickness and fluid condition, show you the readings, and only replace what's worn.</p>
+          <div class="inc"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Pads · discs · fluid · handbrake</div>
+        </article>
+        <article class="svc reveal d2">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.2"/><path d="M12 3v4.8M12 16.2V21M3 12h4.8M16.2 12H21"/></svg></div>
+          <h3>Tyres &amp; tracking</h3>
+          <p>Budget to premium brands fitted and balanced while you wait, plus four-wheel alignment if your steering pulls or your tyres wear unevenly.</p>
+          <div class="inc"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Fit · balance · alignment · TPMS</div>
+        </article>
+        <article class="svc reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h10l4-3 3 1-4 4v5a1 1 0 01-1 1H5a1 1 0 01-1-1z"/><path d="M8 10V7h4v3"/></svg></div>
+          <h3>Servicing, oil &amp; fluids</h3>
+          <p>Interim and full services to your manufacturer's schedule, with the correct-spec oil, filters, coolant and screenwash, and your service record stamped.</p>
+          <div class="inc"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Interim · full · manufacturer schedule</div>
+        </article>
+        <article class="svc reveal d1">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M4.9 6.5l14.2 11M4.9 17.5l14.2-11"/><path d="M9.5 4L12 6l2.5-2M9.5 20l2.5-2 2.5 2"/></svg></div>
+          <h3>Air-conditioning</h3>
+          <p>Blowing warm or smelling musty? We leak-test, regas with the right refrigerant for your car, and run an antibacterial clean through the vents.</p>
+          <div class="inc"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Leak test · regas · vent clean</div>
+        </article>
+        <article class="svc reveal d2">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2.8h6V4"/><path d="M9 12.5l2 2 4-4"/></svg></div>
+          <h3>Pre-purchase inspection</h3>
+          <p>Buying used? We put it on the lift before you hand over the money: a 150-point check, a diagnostic scan, a road test, and a written report you can show the seller.</p>
+          <div class="inc"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>150 points · scan · written report</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= PHOTO STRIP ============================= -->
+  <section style="padding-top:0" aria-label="Inside the workshop">
+    <div class="wrap">
+      <div class="strip">
+        <figure class="shot reveal">
+          <img src="demo-assets/strip-brake-caliper.jpg" alt="Mechanic in blue overalls fitting a brake caliper over the disc of a car raised on a lift, wheel removed" loading="lazy" decoding="async" width="800" height="600">
+          <figcaption><b>01</b>Brakes measured, not guessed</figcaption>
+        </figure>
+        <figure class="shot reveal d1">
+          <img src="demo-assets/strip-tyre-change.jpg" alt="Mechanic in blue overalls lifting a wheel onto an orange SUV raised on a two-post lift in a workshop" loading="lazy" decoding="async" width="800" height="600">
+          <figcaption><b>02</b>Tyres fitted, balanced &amp; tracked</figcaption>
+        </figure>
+        <figure class="shot reveal d2">
+          <img src="demo-assets/strip-diagnostics-tablet.jpg" alt="Mechanic leaning under the open bonnet of an orange car, holding a diagnostic tablet while checking the engine" loading="lazy" decoding="async" width="800" height="600">
+          <figcaption><b>03</b>Dealer-level diagnostic kit</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= BOOK A BAY ============================= -->
+  <section class="book" id="book" aria-labelledby="book-title">
+    <div class="wrap book-in">
+      <div class="book-copy">
+        <span class="eyebrow on-dark">Book online · bays shown live</span>
+        <h2 id="book-title">Pick a bay, not "sometime Tuesday".</h2>
+        <p>Choose the job, the day and a drop-off time. You'll see which bay your car's booked into and roughly when it'll be ready, and a mechanic confirms by text within working hours.</p>
+        <div class="legend" aria-hidden="true">
+          <span><i style="background:var(--signal)"></i>Your slot</span>
+          <span><i style="background:var(--paper)"></i>Free</span>
+          <span><i style="background:repeating-linear-gradient(135deg,#6b7076 0 3px,#3a3f45 3px 6px)"></i>Booked / too late</span>
+        </div>
+        <div class="callout">
+          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9.5 17h-19z"/><path d="M12 10v4M12 17.5v.01"/></svg>
+          <span>Warning light on? Call <a href="tel:+441134960472">0113&nbsp;496&nbsp;0472</a> and we'll tell you if it's safe to drive in.</span>
+        </div>
+      </div>
+
+      <div class="book-visual">
+        <div class="jobcard reveal d1">
+          <div class="jc-stripe" aria-hidden="true"></div>
+          <div class="jc-head">
+            <div class="tt">Book a bay<span>JOB CARD · AIREWORKS LEEDS</span></div>
+            <span class="jc-badge"><span class="live"></span><span id="bayCount">BAYS OPEN</span></span>
+          </div>
+          <div class="jc-body">
+            <label class="fl" for="regInput">Your reg (optional)</label>
+            <div class="plate">
+              <span class="uk" aria-hidden="true">UK</span>
+              <input id="regInput" type="text" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="8" placeholder="YOUR REG">
+            </div>
+
+            <span class="fl" id="svcLabel">Choose the job</span>
+            <div class="opt-row" id="svcRow" role="group" aria-labelledby="svcLabel">
+              <button type="button" class="opt" data-svc="mot" aria-pressed="true">MOT test<small>45 MIN · MOT LANE</small></button>
+              <button type="button" class="opt" data-svc="interim" aria-pressed="false">Interim service<small>1 HR 30</small></button>
+              <button type="button" class="opt" data-svc="full" aria-pressed="false">Full service<small>3 HRS</small></button>
+              <button type="button" class="opt" data-svc="diag" aria-pressed="false">Diagnostics<small>1 HR</small></button>
+              <button type="button" class="opt" data-svc="brakes" aria-pressed="false">Brakes<small>2 HRS</small></button>
+              <button type="button" class="opt" data-svc="tyres" aria-pressed="false">Tyres &amp; tracking<small>45 MIN</small></button>
+              <button type="button" class="opt" data-svc="aircon" aria-pressed="false">Air-con regas<small>45 MIN</small></button>
+            </div>
+
+            <span class="fl" id="dayLabel">Choose a day</span>
+            <div class="opt-row" id="dayRow" role="group" aria-labelledby="dayLabel">
+              <button type="button" class="opt" data-day="0" aria-pressed="true">Mon</button>
+              <button type="button" class="opt" data-day="1" aria-pressed="false">Tue</button>
+              <button type="button" class="opt" data-day="2" aria-pressed="false">Wed</button>
+              <button type="button" class="opt" data-day="3" aria-pressed="false">Thu</button>
+              <button type="button" class="opt" data-day="4" aria-pressed="false">Fri</button>
+              <button type="button" class="opt" data-day="5" aria-pressed="false">Sat</button>
+            </div>
+
+            <span class="fl" id="slotLabel">Drop-off time &amp; bay</span>
+            <div class="slot-grid" id="slotGrid" role="group" aria-labelledby="slotLabel">
+              <button type="button" class="slot" data-slot="07:30" aria-pressed="false"><b>07:30</b><span>Bay 1</span></button>
+              <button type="button" class="slot" data-slot="08:00" aria-pressed="false"><b>08:00</b><span>Bay 1</span></button>
+              <button type="button" class="slot" data-slot="08:30" aria-pressed="true"><b>08:30</b><span>Bay 1</span></button>
+              <button type="button" class="slot" data-slot="09:30" aria-pressed="false"><b>09:30</b><span>Bay 1</span></button>
+              <button type="button" class="slot" data-slot="11:00" aria-pressed="false"><b>11:00</b><span>Bay 1</span></button>
+              <button type="button" class="slot" data-slot="12:30" aria-pressed="false"><b>12:30</b><span>Bay 1</span></button>
+              <button type="button" class="slot" data-slot="14:00" aria-pressed="false"><b>14:00</b><span>Bay 1</span></button>
+              <button type="button" class="slot" data-slot="15:30" aria-pressed="false"><b>15:30</b><span>Bay 1</span></button>
+            </div>
+
+            <div class="jc-summary">
+              <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+              <span>Booking: <b id="slotSummary" aria-live="polite">MOT test · 08:30 drop-off · Bay 1 (MOT lane)</b></span>
+            </div>
+            <button type="button" class="btn btn-primary" id="holdBtn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>
+              Hold this bay
+            </button>
+            <p class="jc-note">No payment to book. A mechanic confirms by text. · <span class="mono" id="bookClock">--:--</span> Leeds</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= WHY US ============================= -->
+  <section id="why" aria-labelledby="why-title">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Why Aireworks</span>
+        <h2 id="why-title">The garage you'd send your mum to.</h2>
+        <p>No call centre, no upsell script, no mystery invoice. Just mechanics who explain what they found and fix what needs fixing.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 00-5.4 5.1L3 17.7 6.3 21l6.3-6.3a4 4 0 005.1-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg></div>
+          <h3>Mechanics, not salespeople</h3>
+          <p>The person on the phone is the person with the spanner. Ask them anything. They'll give you a straight answer.</p>
+        </div>
+        <div class="why reveal d1">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8a2 2 0 012-2h2l2-2h6l2 2h2a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+          <h3>Photo &amp; video reports</h3>
+          <p>Every car gets a traffic-light health check with photos, so you can see the worn part for yourself.</p>
+        </div>
+        <div class="why reveal d2">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 6.5A4 4 0 009 9v10M6.5 13H13M6 19h12"/></svg></div>
+          <h3>Fixed prices, up front</h3>
+          <p>Every job is quoted as one fixed price including VAT. If we find something else, we text you before we touch it.</p>
+        </div>
+        <div class="why reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4"/><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/></svg></div>
+          <h3>Keeps your warranty intact</h3>
+          <p>We service to your manufacturer's schedule with parts of matching quality, so your new-car warranty stays valid.</p>
+        </div>
+        <div class="why reveal d1">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 16v-4l2.2-5h13.6l2.2 5v4"/><path d="M3 16h18"/><circle cx="7" cy="16.5" r="2"/><circle cx="17" cy="16.5" r="2"/></svg></div>
+          <h3>Wait, or we'll drop you</h3>
+          <p>Shorter jobs come with a waiting room with Wi-Fi and proper coffee. For longer ones we'll run you home or to work within three miles.</p>
+        </div>
+        <div class="why reveal d2">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg></div>
+          <h3>Old parts, on request</h3>
+          <p>Want to see what came off your car? Ask and we'll bag up the old parts and hand them back with your keys.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= HOW IT WORKS ============================= -->
+  <section style="background:var(--paper);border-block:1px solid var(--line)" aria-labelledby="how-title">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <span class="eyebrow center">How it works</span>
+        <h2 id="how-title">Booked in. Checked over. Sorted.</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="bar"></div>
+          <div class="num" aria-hidden="true">01</div>
+          <h3>Book a bay</h3>
+          <p>Pick the job, day and drop-off time online, or ring and describe what the car's doing. We'll book the right amount of time.</p>
+        </div>
+        <div class="step reveal d1">
+          <div class="bar"></div>
+          <div class="num" aria-hidden="true">02</div>
+          <h3>See it on the lift</h3>
+          <p>We inspect the car and text you a photo report. Anything extra comes with a fixed price you can approve or decline.</p>
+        </div>
+        <div class="step reveal d2">
+          <div class="bar"></div>
+          <div class="num" aria-hidden="true">03</div>
+          <h3>Collect, sorted</h3>
+          <p>We talk you through the invoice line by line, stamp your service record, and send an MOT or service reminder when it's next due.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= MOT BAND ============================= -->
+  <section id="mot" aria-labelledby="mot-title">
+    <div class="wrap band-in">
+      <div class="band-photo reveal">
+        <img src="demo-assets/band-car-on-lift.jpg" alt="White SUV raised on a blue lift in a bright workshop while a mechanic in blue overalls checks the rear wheel and makes notes" loading="lazy" decoding="async" width="1100" height="880">
+      </div>
+      <div class="band-copy reveal d1">
+        <span class="eyebrow">MOT &amp; inspections</span>
+        <h2 id="mot-title">MOT due? Know what's an advisory and what's a fail.</h2>
+        <p>Our MOT lane runs Monday to Saturday. If your car fails, you'll see why on the photo report with a fixed price for the repair. If we do the work, the retest is free within 10 working days.</p>
+        <ul class="band-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Class 4 MOTs for cars and light vans, while you wait</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>A text reminder a month before it's due</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Combine with a service and save on both</li>
+        </ul>
+        <a class="btn btn-dark" href="#plan">See the Care Plan</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= SERVICE AREAS ============================= -->
+  <section class="areas" id="areas" aria-labelledby="areas-title">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Where we are</span>
+        <h2 id="areas-title">Just off Armley Road, serving all of west Leeds.</h2>
+        <p>Drop your car off on the way to work. We run free collection and delivery within three miles of the workshop.</p>
+      </div>
+      <div class="area-tags reveal d1">
+        <span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Armley</span>
+        <span class="tag">Kirkstall</span>
+        <span class="tag">Bramley</span>
+        <span class="tag">Headingley</span>
+        <span class="tag">Burley</span>
+        <span class="tag">Hyde Park</span>
+        <span class="tag">Wortley</span>
+        <span class="tag">Holbeck</span>
+        <span class="tag">Farnley</span>
+        <span class="tag">Beeston</span>
+        <span class="tag">Rodley</span>
+        <span class="tag">Horsforth</span>
+        <span class="tag">Pudsey</span>
+        <span class="tag">City Centre</span>
+        <span class="tag">Hunslet</span>
+        <span class="tag">Morley</span>
+      </div>
+      <p class="area-near reveal d2"><b>Also regularly:</b> Bradford · Shipley · Otley · Wakefield</p>
+    </div>
+  </section>
+
+  <!-- ============================= CARE PLAN ============================= -->
+  <section id="plan" aria-labelledby="plan-title">
+    <div class="wrap">
+      <div class="plan reveal">
+        <div class="plan-l">
+          <span class="eyebrow">Spread the cost</span>
+          <h2 id="plan-title">Aireworks Care Plan</h2>
+          <p>One monthly payment covers your MOT and yearly service, gets you priority bays, and takes the sting out of the bills.</p>
+          <ul class="plan-feat">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Annual MOT included</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Interim service included</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>10% off parts &amp; labour</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Priority bay booking</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Free winter &amp; summer checks</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Half-price air-con regas</li>
+          </ul>
+        </div>
+        <div class="plan-r">
+          <div class="rel">
+            <div class="price">£14<span>/month</span></div>
+            <div class="sub">12-month plan · per car · includes VAT</div>
+            <a class="btn btn-primary" href="#book">Join the Care Plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= TESTIMONIALS ============================= -->
+  <section id="reviews" style="background:var(--paper);border-block:1px solid var(--line)" aria-labelledby="reviews-title">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <span class="eyebrow center">Reviews</span>
+        <h2 id="reviews-title">What west Leeds drivers say.</h2>
+      </div>
+      <div class="quotes">
+        <figure class="quote reveal">
+          <div class="stars" role="img" aria-label="5 out of 5 stars">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6.5 7 .8-5.2 4.7 1.4 6.9L12 18l-6.6 2.9 1.4-6.9L1.6 9.3l7-.8L12 2z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6.5 7 .8-5.2 4.7 1.4 6.9L12 18l-6.6 2.9 1.4-6.9L1.6 9.3l7-.8L12 2z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6.5 7 .8-5.2 4.7 1.4 6.9L12 18l-6.6 2.9 1.4-6.9L1.6 9.3l7-.8L12 2z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6.5 7 .8-5.2 4.7 1.4 6.9L12 18l-6.6 2.9 1.4-6.9L1.6 9.3l7-.8L12 2z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6.5 7 .8-5.2 4.7 1.4 6.9L12 18l-6.6 2.9 1.4-6.9L1.6 9.3l7-.8L12 2z"/></svg>
+          </div>
+          <blockquote><p>"Engine light came on the week before a drive to Scotland. It was on the scanner the same morning, they texted me a photo of the cracked coil pack, and it was done by lunch."</p></blockquote>
+          <figcaption class="by"><span class="av" aria-hidden="true">SK</span><span><b>Sam K.</b><span>Headingley</span></span></figcaption>
+        </figure>
+        <figure class="quote reveal d1">
+          <div class="stars" role="img" aria-label="5 out of 5 stars">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6.5 7 .8-5.2 4.7 1.4 6.9L12 18l-6.6 2.9 1.4-6.9L1.6 9.3l7-.8L12 2z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6.5 7 .8-5.2 4.7 1.4 6.9L12 18l-6.6 2.9 1.4-6.9L1.6 9.3l7-.8L12 2z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6.5 7 .8-5.2 4.7 1.4 6.9L12 18l-6.6 2.9 1.4-6.9L1.6 9.3l7-.8L12 2z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6.5 7 .8-5.2 4.7 1.4 6.9L12 18l-6.6 2.9 1.4-6.9L1.6 9.3l7-.8L12 2z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6.5 7 .8-5.2 4.7 1.4 6.9L12 18l-6.6 2.9 1.4-6.9L1.6 9.3l7-.8L12 2z"/></svg>
+          </div>
+          <blockquote><p>"Their pre-purchase inspection on a used Golf found a worn clutch the seller hadn't mentioned. I got £600 off the price. It paid for itself ten times over."</p></blockquote>
+          <figcaption class="by"><span class="av" aria-hidden="true">AR</span><span><b>Aisha R.</b><span>Horsforth</span></span></figcaption>
+        </figure>
+        <figure class="quote reveal d2">
+          <div class="stars" role="img" aria-label="5 out of 5 stars">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6.5 7 .8-5.2 4.7 1.4 6.9L12 18l-6.6 2.9 1.4-6.9L1.6 9.3l7-.8L12 2z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6.5 7 .8-5.2 4.7 1.4 6.9L12 18l-6.6 2.9 1.4-6.9L1.6 9.3l7-.8L12 2z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6.5 7 .8-5.2 4.7 1.4 6.9L12 18l-6.6 2.9 1.4-6.9L1.6 9.3l7-.8L12 2z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6.5 7 .8-5.2 4.7 1.4 6.9L12 18l-6.6 2.9 1.4-6.9L1.6 9.3l7-.8L12 2z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6.5 7 .8-5.2 4.7 1.4 6.9L12 18l-6.6 2.9 1.4-6.9L1.6 9.3l7-.8L12 2z"/></svg>
+          </div>
+          <blockquote><p>"Failed the MOT on a corroded brake line. They showed me the photo, gave me a price, fixed it and retested the same afternoon. No drama, no upsell."</p></blockquote>
+          <figcaption class="by"><span class="av" aria-hidden="true">GT</span><span><b>Gareth T.</b><span>Pudsey</span></span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= FAQ ============================= -->
+  <section id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <span class="eyebrow center">Questions</span>
+        <h2 id="faq-title">Good to know before you book.</h2>
+      </div>
+      <div class="faq reveal d1">
+        <details open>
+          <summary>Will servicing with you affect my manufacturer warranty?<span class="q" aria-hidden="true"></span></summary>
+          <div class="a">No. You're free to have your car serviced at an independent garage, provided the work follows the manufacturer's schedule and uses parts of matching quality. That's how we service every car, and we record it in your service book or the digital service record.</div>
+        </details>
+        <details>
+          <summary>How much is an MOT, and what if it fails?<span class="q" aria-hidden="true"></span></summary>
+          <div class="a">£45 for cars and light vans. If it fails, you get the photo report and a fixed price for each repair. If we carry out the work, the retest is free within 10 working days.</div>
+        </details>
+        <details>
+          <summary>Do I need to leave the car all day?<span class="q" aria-hidden="true"></span></summary>
+          <div class="a">Not always. MOTs, tyres and air-con regas take under an hour and you're welcome to wait. Services and bigger repairs usually need a morning drop-off. The booking card shows a realistic ready time for each job.</div>
+        </details>
+        <details>
+          <summary>What happens if you find something else wrong?<span class="q" aria-hidden="true"></span></summary>
+          <div class="a">We stop, photograph it and text you a fixed price. Nothing extra is done without your OK. If it's not urgent, we'll mark it as an advisory so you can plan for it.</div>
+        </details>
+        <details>
+          <summary>Can you check a car before I buy it?<span class="q" aria-hidden="true"></span></summary>
+          <div class="a">Yes. Book a pre-purchase inspection and bring the car in, or ask the seller to. It's a 150-point check with a diagnostic scan, a road test and a written report you can use to negotiate.</div>
+        </details>
+        <details>
+          <summary>Do you work on hybrid and electric cars?<span class="q" aria-hidden="true"></span></summary>
+          <div class="a">Yes for servicing, brakes, tyres, suspension, air-con and MOTs. High-voltage battery repairs go to a specialist partner, and we'll tell you up front if that's where your job is heading.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= FINAL CTA ============================= -->
+  <section class="final" aria-labelledby="final-title">
+    <div class="wrap final-in reveal">
+      <span class="eyebrow on-dark center">Mon–Sat · Leeds</span>
+      <h2 id="final-title">Book the bay. We'll do the rest.</h2>
+      <p>Book online in under a minute, or ring and talk to a mechanic about what your car's doing.</p>
+      <div class="btns">
+        <a class="btn btn-primary" href="#book">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>
+          Book a bay
+        </a>
+        <a class="btn on-dark" href="tel:+441134960472">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 012-2h2l1 4-2 1a11 11 0 005 5l1-2 4 1v2a2 2 0 01-2 2A14 14 0 014 5z"/></svg>
+          Call 0113 496 0472
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============================= FOOTER ============================= -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="brand" href="#top" aria-label="Aireworks Motor Works — home">
+          <svg class="nut" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <path d="M20 3.5l14.3 8.25v16.5L20 36.5 5.7 28.25v-16.5z" fill="#ff5a1f"/>
+            <path d="M20 3.5l14.3 8.25v16.5L20 36.5" fill="#e2470e" opacity=".55"/>
+            <circle cx="20" cy="20" r="6.2" fill="#0f1113"/>
+          </svg>
+          <span class="bt"><b>Aireworks</b><span>Motor Works · Leeds</span></span>
+        </a>
+        <p>Independent servicing, MOTs, diagnostics and repairs in west Leeds. You talk to the mechanic, see the photos and approve the price before any extra work.</p>
+        <div class="foot-contact">
+          <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Unit 4, Wharfside Yard, Armley Road, Leeds LS12 2QX</span></div>
+          <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 012-2h2l1 4-2 1a11 11 0 005 5l1-2 4 1v2a2 2 0 01-2 2A14 14 0 014 5z"/></svg><a href="tel:+441134960472">0113 496 0472</a></div>
+          <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><a href="mailto:workshop@aireworks.example">workshop@aireworks.example</a></div>
+          <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Mon–Fri 07:30–18:00 · Sat 08:00–13:00</span></div>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h2>Services</h2>
+        <a href="#services">Diagnostics</a>
+        <a href="#services">Brakes</a>
+        <a href="#services">Tyres &amp; tracking</a>
+        <a href="#services">Servicing</a>
+        <a href="#services">Air-conditioning</a>
+        <a href="#mot">MOT testing</a>
+      </div>
+      <div class="foot-col">
+        <h2>Company</h2>
+        <a href="#why">Why us</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#areas">Where we are</a>
+        <a href="#plan">Care Plan</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="foot-col">
+        <h2>Get help</h2>
+        <a href="#book">Book a bay</a>
+        <a href="tel:+441134960472">Call the workshop</a>
+        <a href="mailto:workshop@aireworks.example">Email us</a>
+        <a href="#services">Pre-purchase inspection</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Aireworks Motor Works Ltd · DVSA-authorised MOT test station · Class 4 &amp; 7</span>
+      <div class="foot-social">
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h-3a4 4 0 00-4 4v3H5v4h3v7h4v-7h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="Google reviews"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5L12 3z"/></svg></a>
+      </div>
+    </div>
+    <p class="foot-fine">Prices include VAT. Ready times are estimates, not guarantees, and depend on what we find and on parts availability. Business name, address, phone number, email, MOT authorisation and licence details, pricing, and reviews shown here are placeholders for demonstration and should be replaced with your real business details before publishing.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduceMotion=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* sticky header shadow */
+  var head=document.getElementById('head');
+  var onScroll=function(){head.classList.toggle('scrolled',window.scrollY>8);};
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+
+  /* mobile nav */
+  var burger=document.getElementById('burger');
+  function setNav(open){
+    head.classList.toggle('open',open);
+    burger.setAttribute('aria-expanded',open?'true':'false');
+    burger.setAttribute('aria-label',open?'Close menu':'Open menu');
+  }
+  burger.addEventListener('click',function(){setNav(!head.classList.contains('open'));});
+  document.querySelectorAll('#mobileNav a').forEach(function(a){a.addEventListener('click',function(){setNav(false);});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&head.classList.contains('open')){setNav(false);burger.focus();}});
+
+  /* ---------- Leeds (Europe/London) time helpers ---------- */
+  var TZ='Europe/London';
+  function londonNow(){
+    var parts={};
+    try{
+      new Intl.DateTimeFormat('en-GB',{timeZone:TZ,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'})
+        .formatToParts(new Date()).forEach(function(p){parts[p.type]=p.value;});
+    }catch(e){
+      var d=new Date();parts={year:d.getFullYear(),month:d.getMonth()+1,day:d.getDate(),hour:d.getHours(),minute:d.getMinutes()};
+    }
+    return {y:+parts.year,m:+parts.month,d:+parts.day,mins:(+parts.hour%24)*60+(+parts.minute)};
+  }
+  function pad(n){return (n<10?'0':'')+n;}
+  function hhmm(mins){return pad(Math.floor(mins/60))+':'+pad(mins%60);}
+  function toMins(s){var p=s.split(':');return (+p[0])*60+(+p[1]);}
+  var WD=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+  /* workshop hours: Mon–Fri 07:30–18:00, Sat 08:00–13:00, Sun closed */
+  function hoursFor(dow){
+    if(dow===0)return null;
+    if(dow===6)return {open:480,close:780};
+    return {open:450,close:1080};
+  }
+
+  /* ---------- booking model ---------- */
+  var SERVICES={
+    mot:{name:'MOT test',mins:45,lane:'mot'},
+    interim:{name:'Interim service',mins:90,lane:'lift'},
+    full:{name:'Full service',mins:180,lane:'lift'},
+    diag:{name:'Diagnostics',mins:60,lane:'lift'},
+    brakes:{name:'Brakes',mins:120,lane:'lift'},
+    tyres:{name:'Tyres & tracking',mins:45,lane:'lift'},
+    aircon:{name:'Air-con regas',mins:45,lane:'lift'}
+  };
+  var SLOTS=['07:30','08:00','08:30','09:30','11:00','12:30','14:00','15:30'];
+
+  /* deterministic "diary" so the same day always shows the same bookings */
+  function slotState(day,slotIdx,svc,nowMins){
+    var h=hoursFor(day.dow), start=toMins(SLOTS[slotIdx]), s=SERVICES[svc];
+    var bay=s.lane==='mot'?'Bay 1':'Bay '+(2+((day.ord+slotIdx)%3));
+    if(!h||start<h.open||start>=h.close)return {ok:false,why:'Closed',bay:bay};
+    if(start+s.mins>h.close)return {ok:false,why:'Too late',bay:bay};
+    if(day.isToday&&start<nowMins+45)return {ok:false,why:'Past',bay:bay};
+    var k=(day.ord*31+slotIdx*17+(s.lane==='mot'?7:3))%5;
+    if(k===0||k===3)return {ok:false,why:'Booked',bay:bay};
+    return {ok:true,bay:bay,ready:start+s.mins};
+  }
+
+  function buildDays(){
+    var now=londonNow(), base=Date.UTC(now.y,now.m-1,now.d,12), days=[];
+    for(var i=0;days.length<6&&i<14;i++){
+      var dt=new Date(base+i*864e5), dow=dt.getUTCDay(), h=hoursFor(dow);
+      if(!h)continue;
+      if(i===0&&now.mins>h.close-90)continue;
+      days.push({
+        dow:dow,isToday:i===0,ord:Math.floor(dt.getTime()/864e5),
+        short:i===0?'Today':(i===1?'Tomorrow':WD[dow]+' '+dt.getUTCDate()),
+        long:WD[dow]+' '+dt.getUTCDate()+' '+MON[dt.getUTCMonth()]
+      });
+    }
+    return days;
+  }
+
+  var state={svc:'mot',day:0,slot:null,reg:''};
+  var days=buildDays();
+  var dayRow=document.getElementById('dayRow');
+  var slotGrid=document.getElementById('slotGrid');
+  var summary=document.getElementById('slotSummary');
+
+  /* rebuild the day buttons with real dates */
+  dayRow.innerHTML='';
+  days.forEach(function(d,i){
+    var b=document.createElement('button');
+    b.type='button';b.className='opt';b.setAttribute('data-day',i);
+    b.setAttribute('aria-pressed',i===0?'true':'false');
+    b.textContent=d.short;
+    dayRow.appendChild(b);
+  });
+
+  function press(container,attr,val){
+    container.querySelectorAll('['+attr+']').forEach(function(b){
+      b.setAttribute('aria-pressed',b.getAttribute(attr)===String(val)?'true':'false');
+    });
+  }
+
+  function render(){
+    var now=londonNow(), day=days[state.day], firstOk=null, selOk=false, free=0;
+    slotGrid.querySelectorAll('[data-slot]').forEach(function(btn,i){
+      var st=slotState(day,i,state.svc,now.mins);
+      btn.disabled=!st.ok;
+      btn.querySelector('span').textContent=st.ok?st.bay:st.why;
+      btn.setAttribute('aria-label',SLOTS[i]+', '+(st.ok?st.bay+', available':st.why.toLowerCase()));
+      if(st.ok){free++;if(firstOk===null)firstOk=SLOTS[i];if(SLOTS[i]===state.slot)selOk=true;}
+    });
+    if(!selOk)state.slot=firstOk;
+    press(slotGrid,'data-slot',state.slot);
+    document.getElementById('bayCount').textContent=free?free+' SLOTS FREE':'FULLY BOOKED';
+
+    var s=SERVICES[state.svc];
+    if(!state.slot){
+      summary.textContent=s.name+' · '+day.long+': no bays free, try another day';
+      return;
+    }
+    var idx=SLOTS.indexOf(state.slot), st=slotState(day,idx,state.svc,now.mins);
+    var txt=(state.reg?state.reg+' · ':'')+s.name+' · '+day.long+', '+state.slot+' drop-off · '+
+      st.bay+(s.lane==='mot'?' (MOT lane)':'')+' · ready about '+hhmm(st.ready);
+    summary.textContent=txt;
+  }
+
+  document.getElementById('svcRow').addEventListener('click',function(e){
+    var b=e.target.closest('[data-svc]');if(!b)return;
+    state.svc=b.getAttribute('data-svc');press(this,'data-svc',state.svc);render();
+  });
+  dayRow.addEventListener('click',function(e){
+    var b=e.target.closest('[data-day]');if(!b)return;
+    state.day=+b.getAttribute('data-day');press(dayRow,'data-day',state.day);render();
+  });
+  slotGrid.addEventListener('click',function(e){
+    var b=e.target.closest('[data-slot]');if(!b||b.disabled)return;
+    state.slot=b.getAttribute('data-slot');render();
+  });
+  var reg=document.getElementById('regInput');
+  reg.addEventListener('input',function(){
+    var v=reg.value.toUpperCase().replace(/[^A-Z0-9 ]/g,'').replace(/\s+/g,' ').slice(0,8);
+    if(reg.value!==v)reg.value=v;
+    state.reg=v.trim();render();
+  });
+  state.slot='08:30';
+  render();
+
+  document.getElementById('holdBtn').addEventListener('click',function(){
+    var f=document.querySelector('.final');
+    if(f)f.scrollIntoView({behavior:reduceMotion?'auto':'smooth',block:'start'});
+  });
+
+  /* ---------- live clock + next free lift on the workshop board ---------- */
+  function nextFreeLift(){
+    var now=londonNow(), ds=buildDays();
+    for(var d=0;d<ds.length;d++){
+      for(var i=0;i<SLOTS.length;i++){
+        if(slotState(ds[d],i,'diag',now.mins).ok)return (ds[d].isToday?'Today':ds[d].short)+' '+SLOTS[i];
+      }
+    }
+    return 'Call us';
+  }
+  function tick(){
+    var t=hhmm(londonNow().mins);
+    document.getElementById('heroClock').textContent='LEEDS '+t;
+    document.getElementById('bookClock').textContent=t;
+    document.getElementById('nextLift').textContent=nextFreeLift();
+  }
+  tick();setInterval(tick,15000);
+
+  /* gentle progress on the board (static when reduced motion is on) */
+  if(!reduceMotion){
+    var regs=['YK19','LS68','BD21','WA17','YH70','YG22'], r=0;
+    var jobs=[
+      {bar:document.getElementById('b1bar'),st:document.getElementById('b1st'),p:62,hold:0,run:'IN TEST',done:'PASSED',reg:document.getElementById('b1reg'),suffix:' · MOT LANE'},
+      {bar:document.getElementById('b3bar'),st:document.getElementById('b3st'),p:28,hold:0,run:'SCANNING',done:'READY',reg:null}
+    ];
+    setInterval(function(){
+      jobs.forEach(function(j){
+        if(j.hold>0){
+          j.hold--;
+          if(j.hold===0){
+            j.p=6;j.st.textContent=j.run;j.st.className='st st-run';
+            if(j.reg){r=(r+1)%regs.length;j.reg.textContent=regs[r]+' •••'+j.suffix;}
+          }
+        }else{
+          j.p=Math.min(100,j.p+(j.reg?2:1));
+          if(j.p>=100){j.hold=6;j.st.textContent=j.done;j.st.className='st st-ok';}
+        }
+        j.bar.style.width=j.p+'%';
+      });
+    },1500);
+  }
+
+  /* scroll reveal */
+  var reveals=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
+      });
+    },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    reveals.forEach(function(el){io.observe(el);});
+  }else{
+    reveals.forEach(function(el){el.classList.add('in');});
+  }
+})();
+</script>
+</body>
+</html>
